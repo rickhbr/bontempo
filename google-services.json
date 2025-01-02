@@ -1,0 +1,80 @@
+{
+  "project_info": {
+    "project_number": "234450029995",
+    "firebase_url": "https://bontempo-app-2020.firebaseio.com",
+    "project_id": "bontempo-app-2020",
+    "storage_bucket": "bontempo-app-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234450029995:android:f970731ce527ab6ee5d6ee",
+        "android_client_info": {
+          "package_name": "com.ezoom.bontempo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234450029995-anuifuuvqnolhv9cip83es596i9rpu33.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ezoom.bontempo",
+            "certificate_hash": "d365bffc79851365a46959500e611daa291fdce0"
+          }
+        },
+        {
+          "client_id": "234450029995-b1ik8m09vbbot6km56i8qp4et7dr9ctf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ezoom.bontempo",
+            "certificate_hash": "021d917f18ae3b876eb66ed4c4c9a6370b7fa8b5"
+          }
+        },
+        {
+          "client_id": "234450029995-5t7ud4lm08nr91p9t2rr2r2qid3kq0nj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ezoom.bontempo",
+            "certificate_hash": "af8dd7c0a989d45af94a692dff75e4933d8ac8b0"
+          }
+        },
+        {
+          "client_id": "234450029995-nnuavbki05nt1knsj0116c2fuc31mscn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ezoom.bontempo",
+            "certificate_hash": "0264771970cb05d30722cd2dd582cfab37b69bef"
+          }
+        },
+        {
+          "client_id": "234450029995-kpdujjrkd39pm8015c7u50p86lt1kivt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpa0_ToZLZ2ojhdFI0iCt-Du_82IPKeDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234450029995-kpdujjrkd39pm8015c7u50p86lt1kivt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "234450029995-m7v5s8au6uomkpqe5rdcn57cphq84lvl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ezoom.bontempo",
+                "app_store_id": "1506685787"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

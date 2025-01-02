@@ -1,0 +1,183 @@
+# FLUTTER 2.5.3
+name: bontempo
+description: APP da Bontempo.
+
+version: 1.0.15+30
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localization: ^0.2.0
+  flutter_exif_rotation: ^0.5.1
+  # flutter_exif_rotation:
+  #   git:
+  #     url: https://github.com/bkoznov/flutter_exif_rotation.git
+  sign_in_with_apple: ^6.1.1
+  auto_size_text: ^3.0.0
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+  dart_random_choice: ^0.2.0
+  device_apps: ^2.1.0
+  dio: ^5.5.0+1
+  equatable: ^2.0.5
+  firebase_analytics: ^11.2.0
+  firebase_core: ^3.2.0
+  firebase_messaging: ^15.0.2
+  flutter_bloc: ^8.1.6
+  flutter_calendar_carousel: 
+    git:
+      url: https://github.com/casualcoder404/flutter_calendar_carousel.git
+  flutter_html: ^3.0.0-beta.2
+  flutter_image_compress: ^2.3.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_masked_text2: ^0.9.1
+  flutter_screenutil: ^5.9.3
+  # flutter_appavailability: ^0.0.21
+  flutter_secure_storage: ^9.2.2
+  flutter_staggered_grid_view: ^0.7.0
+  flutter_svg: ^2.0.10+1
+  geolocator: ^12.0.0
+  get_it: ^7.7.0
+  shared_preferences: ^2.2.3
+  google_sign_in: ^6.2.1
+  http: ^1.2.1
+  intl: ^0.19.0
+  keyboard_avoider: ^0.2.0
+  map_launcher: ^3.2.0
+  package_info: ^2.0.2
+  page_transition: ^2.1.0
+  # youtube_api: ^0.7.2
+  share: ^2.0.4
+  shimmer: ^3.0.0
+  url_launcher: ^6.3.0
+  webview_flutter: ^4.8.0
+  dotted_border: ^2.1.0
+  carousel_slider: ^4.2.1
+  image_picker: ^1.1.2
+  flutter_login_facebook: ^2.0.1
+  flutter_facebook_auth: ^7.0.1
+  youtube_player_flutter: ^9.0.1
+  wechat_assets_picker: ^9.1.0
+  mime: ^1.0.5
+
+#dependency_overrides:
+#flutter_svg: 0.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  change_app_package_name: ^1.3.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/2.0x/99food.png
+    - assets/images/2.0x/bg-day.png
+    - assets/images/2.0x/bg-night.png
+    - assets/images/2.0x/bg-rain.png
+    - assets/images/2.0x/deliverymuch.png
+    - assets/images/2.0x/icon.png
+    - assets/images/2.0x/ifood.png
+    - assets/images/2.0x/logo.png
+    - assets/images/2.0x/rappi.png
+    - assets/images/2.0x/ubereats.png
+    - assets/images/3.0x/99food.png
+    - assets/images/3.0x/bg-day.png
+    - assets/images/3.0x/bg-night.png
+    - assets/images/3.0x/bg-rain.png
+    - assets/images/3.0x/deliverymuch.png
+    - assets/images/3.0x/icon.png
+    - assets/images/3.0x/ifood.png
+    - assets/images/3.0x/logo.png
+    - assets/images/3.0x/rappi.png
+    - assets/images/3.0x/ubereats.png
+    - assets/images/99food.png
+    - assets/images/bg-cloudy-night.png
+    - assets/images/bg-cloudy.png
+    - assets/images/bg-day.png
+    - assets/images/bg-night.png
+    - assets/images/bg-rain-night.png
+    - assets/images/bg-rain.png
+    - assets/images/deliverymuch.png
+    - assets/images/banner.png
+    - assets/images/icon.png
+    - assets/images/ifood.png
+    - assets/images/stores.png
+    - assets/images/logo.png
+    - assets/images/rappi.png
+    - assets/images/ubereats.png
+    - assets/svg/placements/accessories.svg
+    - assets/svg/placements/belt.svg
+    - assets/svg/placements/feet.svg
+    - assets/svg/placements/hands.svg
+    - assets/svg/placements/head.svg
+    - assets/svg/placements/legs.svg
+    - assets/svg/placements/neck.svg
+    - assets/svg/placements/torso.svg
+    - assets/svg/box.svg
+    - assets/svg/calendar.svg
+    - assets/svg/camera.svg
+    - assets/svg/cart.svg
+    - assets/svg/circle-minus.svg
+    - assets/svg/circle-plus.svg
+    - assets/svg/close.svg
+    - assets/svg/closet.svg
+    - assets/svg/clothes-add.svg
+    - assets/svg/complete.svg
+    - assets/svg/cutlery.svg
+    - assets/svg/eye-hide.svg
+    - assets/svg/eye-show.svg
+    - assets/svg/gallery.svg
+    - assets/svg/gastronomy.svg
+    - assets/svg/heart.svg
+    - assets/svg/lock.svg
+    - assets/svg/logo.svg
+    - assets/svg/logout.svg
+    - assets/svg/lookbook.svg
+    - assets/svg/lookbook-add.svg
+    - assets/svg/movies.svg
+    - assets/svg/news.svg
+    - assets/svg/notification.svg
+    - assets/svg/share.svg
+    - assets/svg/smile-1.svg
+    - assets/svg/smile-2.svg
+    - assets/svg/smile-3.svg
+    - assets/svg/social-apple.svg
+    - assets/svg/social-facebook.svg
+    - assets/svg/social-google.svg
+    - assets/svg/user.svg
+    - assets/svg/weather-cloud.svg
+    - assets/svg/weather-day-cloud.svg
+    - assets/svg/weather-night-cloud.svg
+    - assets/svg/weather-night.svg
+    - assets/svg/weather-rain.svg
+    - assets/svg/weather-snow.svg
+    - assets/svg/weather-storm.svg
+    - assets/svg/weather-sun.svg
+    - assets/svg/welcome.svg
+    - assets/svg/whatsapp.svg
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Montserrat-ExtraBold.ttf
+          weight: 800
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "assets/launcher/icon-ios.png"
+  image_path_android: "assets/launcher/icon.png"
+  adaptive_icon_background: "assets/launcher/icon_background.png"
+  adaptive_icon_foreground: "assets/launcher/icon_foreground.png"

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.821" height="27.185" viewBox="0 0 28.821 27.185">
+  <g id="Grupo_241" data-name="Grupo 241" transform="translate(-324.179 -271)">
+    <path id="shopping-cart_3_" data-name="shopping-cart (3)" d="M19.841,3.895a2,2,0,0,0-1.527-.674H3.7l-.147-1.1A2.23,2.23,0,0,0,1.675,0H.6a.6.6,0,1,0,0,1.2H1.675c.193,0,.6.408.69,1.074l1.721,12.91a2.431,2.431,0,0,0,.823,1.5,2.485,2.485,0,0,0,1.154.574,2.212,2.212,0,1,0,3.912.044h3.151a2.212,2.212,0,1,0,3.934,0h1.576a.6.6,0,1,0,0-1.2H6.506a1.291,1.291,0,0,1-1.227-1.074l-.126-.943H17.026a2.5,2.5,0,0,0,2.419-2.118L20.307,5.5a2,2,0,0,0-.466-1.6ZM9.017,18.314A1.009,1.009,0,1,1,8.008,17.3,1.01,1.01,0,0,1,9.017,18.314Zm7.085,0A1.009,1.009,0,1,1,15.093,17.3,1.01,1.01,0,0,1,16.1,18.314ZM18.936,4.687a.808.808,0,0,1,.179.652l-.362,2.713H14.662L14.9,4.423h3.41a.809.809,0,0,1,.622.264ZM10.4,12.882l-.242-3.628h3.222l-.242,3.628Zm-.322-4.831L9.833,4.423H13.7l-.242,3.628ZM8.627,4.423l.242,3.628H4.348L3.865,4.423ZM4.509,9.254H8.949l.242,3.628h-4.2Zm12.517,3.628H14.34l.242-3.628h4.011l-.34,2.554a1.291,1.291,0,0,1-1.227,1.074Zm0,0" transform="translate(324.179 277.66)" fill="#5a5a5a"/>
+    <circle id="Elipse_62" data-name="Elipse 62" cx="7" cy="7" r="7" transform="translate(339 271)" fill="#50d3b1"/>
+    <g id="Grupo_237" data-name="Grupo 237" transform="translate(345.761 275.406) rotate(45)">
+      <g id="noun_Delete_950098" transform="translate(0 0)">
+        <line id="Linha_18" data-name="Linha 18" x1="3.848" y2="3.848" stroke-width="2" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <line id="Linha_19" data-name="Linha 19" x2="3.848" y2="3.848" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>
