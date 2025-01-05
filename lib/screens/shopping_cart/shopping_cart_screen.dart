@@ -15,7 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ShoppingCartScreen extends StatefulWidget {
   @override
@@ -88,8 +88,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
         content += '\n' +
             stock.quantity.toString() +
             ' ' +
-            stock.title.replaceAll(
-                RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true), '');
+            stock.title.replaceAll(RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true), '');
       });
     }
 
@@ -149,8 +148,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 _adding = false;
               });
             } else if (state is ChangedCartState) {
-              int index = _stock
-                  .indexWhere((StockModel item) => item.id == state.item.id);
+              int index = _stock.indexWhere((StockModel item) => item.id == state.item.id);
               setState(() {
                 _stock[index] = state.item;
               });
@@ -177,8 +175,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 kToolbarHeight: ScreenUtil().setWidth(72),
                 expandedHeight: ScreenUtil().setWidth(120),
                 title: 'Lista de Compras',
-                description:
-                    'Faça aqui sua lista de compras, adicione e exclua o que necessário.',
+                description: 'Faça aqui sua lista de compras, adicione e exclua o que necessário.',
                 descriptionPadding: 60.0,
                 titlePadding: 68.0,
               ),
@@ -187,9 +184,8 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
             SliverToBoxAdapter(
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  minHeight: MediaQuery.of(context).size.height -
-                      ScreenUtil().setWidth(150) -
-                      ScreenUtil().setHeight(84),
+                  minHeight:
+                      MediaQuery.of(context).size.height - ScreenUtil().setWidth(150) - ScreenUtil().setHeight(84),
                 ),
                 child: Padding(
                   padding: EdgeInsets.only(
@@ -286,11 +282,9 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                               ).toList(),
                             );
                           }
-                          if (state is! LoadingCartState &&
-                              _stock.length == 0) {
+                          if (state is! LoadingCartState && _stock.length == 0) {
                             return NoResults(
-                              text:
-                                  'Nenhum produto adicionado a sua lista de compras.',
+                              text: 'Nenhum produto adicionado a sua lista de compras.',
                             );
                           }
                           return SizedBox.shrink();

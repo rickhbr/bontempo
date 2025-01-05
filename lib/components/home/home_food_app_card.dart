@@ -1,10 +1,12 @@
+// import 'package:app_launcher/app_launcher.dart';
 import 'package:bontempo/components/cards/common_card.dart';
 import 'package:bontempo/components/typography/column_title.dart';
 import 'package:bontempo/models/home_model.dart';
 import 'package:bontempo/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:dart_random_choice/dart_random_choice.dart';
-import 'package:device_apps/device_apps.dart';
+import 'package:installed_apps/installed_apps.dart';
+import 'package:installed_apps/app_info.dart';
 
 class HomeFoodAppCard extends StatefulWidget {
   final HomeModel home;
@@ -16,8 +18,9 @@ class HomeFoodAppCard extends StatefulWidget {
 }
 
 class _HomeFoodAppCardState extends State<HomeFoodAppCard> {
-  ApplicationWithIcon? foodApp;
+  String? foodAppName;
   String? foodIcon;
+  String? foodPackage;
 
   @override
   void initState() {
@@ -26,69 +29,54 @@ class _HomeFoodAppCardState extends State<HomeFoodAppCard> {
   }
 
   Future<void> getApps() async {
-    List<String> packages = [
-      'br.com.brainweb.ifood',
-      'com.ubercab.eats',
-      'br.com.deliverymuch.gastro',
-      'com.xiaojukeji.didi.brazil.customer',
-      'com.grability.rappi',
+    List<Map<String, String>> apps = [
+      {'package': 'br.com.brainweb.ifood', 'icon': 'assets/images/ifood.png', 'name': 'iFood'},
+      {'package': 'com.ubercab.eats', 'icon': 'assets/images/ubereats.png', 'name': 'Uber Eats'},
+      {'package': 'br.com.deliverymuch.gastro', 'icon': 'assets/images/deliverymuch.png', 'name': 'Delivery Much'},
+      {'package': 'com.xiaojukeji.didi.brazil.customer', 'icon': 'assets/images/99food.png', 'name': '99 Food'},
+      {'package': 'com.grability.rappi', 'icon': 'assets/images/rappi.png', 'name': 'Rappi'},
     ];
     List<double> weights = [5, 4, 3, 2, 1];
-    while (packages.isNotEmpty && foodApp == null) {
-      String package = randomChoice<String>(packages, weights);
 
-      bool available = await DeviceApps.isAppInstalled(package);
-      if (available) {
-        ApplicationWithIcon app =
-            await DeviceApps.getApp(package, true) as ApplicationWithIcon;
-        String? icon;
-        switch (package) {
-          case 'br.com.brainweb.ifood':
-            icon = 'assets/images/ifood.png';
-            break;
-          case 'com.ubercab.eats':
-            icon = 'assets/images/ubereats.png';
-            break;
-          case 'br.com.deliverymuch.gastro':
-            icon = 'assets/images/deliverymuch.png';
-            break;
-          case 'com.xiaojukeji.didi.brazil.customer':
-            icon = 'assets/images/99food.png';
-            break;
-          case 'com.grability.rappi':
-            icon = 'assets/images/rappi.png';
-            break;
+    while (apps.isNotEmpty && foodAppName == null) {
+      int index = randomChoice<int>(List.generate(apps.length, (i) => i), weights);
+      String package = apps[index]['package']!;
+
+      try {
+        AppInfo? appInfo = await InstalledApps.getAppInfo(package);
+        if (appInfo != null) {
+          setState(() {
+            foodAppName = apps[index]['name'];
+            foodIcon = apps[index]['icon'];
+            foodPackage = appInfo.packageName;
+          });
+          break;
         }
-        setState(() {
-          foodApp = app;
-          foodIcon = icon;
-        });
-      } else {
-        packages.removeWhere((String item) => item == package);
-        weights.removeLast();
+      } catch (e) {
+        apps.removeAt(index);
+        weights.removeAt(index);
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return foodApp != null
+    return foodAppName != null
         ? Column(
             children: <Widget>[
               ColumnTitle(
-                theme: widget.home.mode == HomeMode.day
-                    ? CustomTheme.black
-                    : CustomTheme.white,
+                theme: widget.home.mode == HomeMode.day ? CustomTheme.black : CustomTheme.white,
                 lightTitle: 'Não está afim de cozinhar?',
                 boldTitle: 'Peça uma tele-entrega:',
               ),
               CommonCard(
                 buttonTitle: 'IR PARA O APP',
                 imageAsset: foodIcon,
-                imageMemory: foodIcon == null ? foodApp?.icon : null,
-                title: 'Faça seu pedido pelo ${foodApp?.appName}',
-                onTap: () {
-                  DeviceApps.openApp(foodApp?.packageName ?? '');
+                title: 'Faça seu pedido pelo $foodAppName',
+                onTap: () async {
+                  if (foodPackage != null) {
+                    // await AppLauncher.openApp(androidApplicationId: foodPackage!);
+                  }
                 },
               ),
             ],

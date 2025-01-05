@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:bontempo/blocs/authentication/index.dart';
 import 'package:bontempo/blocs/gastronomy_types/gastronomy_types_bloc.dart';
 import 'package:bontempo/blocs/movie_genres/movie_genres_bloc.dart';
@@ -8,7 +7,6 @@ import 'package:bontempo/router.dart' as router;
 import 'package:bontempo/screens/index.dart';
 import 'package:bontempo/theme/theme.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,8 +55,7 @@ Future<void> main() async {
   Bloc.observer = SimpleBlocDelegate();
   UserRepository userRepository = UserRepository();
   await userRepository.initialize(); // Inicializa o UserRepository corretamente
-  getIt.registerSingleton<AuthenticationBloc>(
-      AuthenticationBloc(userRepository: userRepository));
+  getIt.registerSingleton<AuthenticationBloc>(AuthenticationBloc(userRepository: userRepository));
 
   runApp(
     MultiBlocProvider(

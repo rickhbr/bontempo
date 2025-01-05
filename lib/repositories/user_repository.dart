@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -18,8 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class UserRepository {
-  static final UserRepository _userRepositorySingleton =
-      UserRepository._internal();
+  static final UserRepository _userRepositorySingleton = UserRepository._internal();
   factory UserRepository() {
     return _userRepositorySingleton;
   }
@@ -51,8 +49,7 @@ class UserRepository {
   }) async {
     try {
       await initializeGeolocation(); // Initialize geolocation before using it
-      Response response =
-          await api.dio.post('${api.endpoint}/auth/login', data: {
+      Response response = await api.dio.post('${api.endpoint}/auth/login', data: {
         'email': email,
         'password': password,
         'fcm_token': await this.getFCMToken(),
@@ -139,8 +136,7 @@ class UserRepository {
             data: {
               'type': 'facebook',
               'email': account['email'],
-              'avatar': account['picture'] != null &&
-                      account['picture']['data'] != null
+              'avatar': account['picture'] != null && account['picture']['data'] != null
                   ? account['picture']['data']['url']
                   : null,
               'name': account['name'],
@@ -176,10 +172,8 @@ class UserRepository {
   Future<UserModel> appleAuthenticate() async {
     try {
       await initializeGeolocation(); // Initialize geolocation before using it
-      final credential = await SignInWithApple.getAppleIDCredential(scopes: [
-        AppleIDAuthorizationScopes.email,
-        AppleIDAuthorizationScopes.fullName
-      ]);
+      final credential = await SignInWithApple.getAppleIDCredential(
+          scopes: [AppleIDAuthorizationScopes.email, AppleIDAuthorizationScopes.fullName]);
 
       Response response = await api.dio.post(
         '${api.endpoint}/auth/login-apple',
@@ -295,8 +289,7 @@ class UserRepository {
   Future<UserModel> registerUser(Map<String, dynamic> data) async {
     try {
       geolocation = await Geolocation.getUserPosition();
-      print(
-          "Geolocation inicializada: ${geolocation!.latitude}, ${geolocation!.longitude}");
+      print("Geolocation inicializada: ${geolocation!.latitude}, ${geolocation!.longitude}");
 
       var shared = await SharedPreferences.getInstance();
       String fcmToken = await this.getFCMToken();
@@ -307,8 +300,7 @@ class UserRepository {
       }
 
       print("Dados para registro: $data");
-      print(
-          "Latitude: ${geolocation!.latitude}, Longitude: ${geolocation!.longitude}");
+      print("Latitude: ${geolocation!.latitude}, Longitude: ${geolocation!.longitude}");
 
       Response response = await api.dio.post(
         '${api.endpoint}/clients',
@@ -402,8 +394,7 @@ class UserRepository {
     FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
     if (Platform.isIOS && fcmToken == null) {
-      NotificationSettings settings =
-          await _firebaseMessaging.requestPermission(
+      NotificationSettings settings = await _firebaseMessaging.requestPermission(
         alert: true,
         announcement: false,
         badge: true,

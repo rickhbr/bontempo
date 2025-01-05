@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class RecipesDetailsScreen extends StatefulWidget {
@@ -50,24 +50,20 @@ class _RecipesDetailsScreenState extends State<RecipesDetailsScreen> {
 
     if (this._recipe!.preparation.isNotEmpty) {
       content += 'MODO DE PREPARO\n' +
-          this._recipe!.preparation.replaceAll(
-              RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true), '') +
+          this._recipe!.preparation.replaceAll(RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true), '') +
           '\n\n';
     }
 
     if (this._recipe!.information.isNotEmpty) {
       content += 'OUTRAS INFORMAÇÕES\n' +
-          this._recipe!.information.replaceAll(
-              RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true), '') +
+          this._recipe!.information.replaceAll(RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true), '') +
           '\n\n';
     }
 
     if (this._recipe!.ingredients.length > 0) {
       content += 'INGREDIENTES\n';
       this._recipe!.ingredients.forEach((IngredientModel ingredient) {
-        content += ingredient.title.replaceAll(
-                RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true), '') +
-            '\n';
+        content += ingredient.title.replaceAll(RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true), '') + '\n';
       });
       content += '\n';
     }
@@ -172,9 +168,8 @@ class _RecipesDetailsScreenState extends State<RecipesDetailsScreen> {
             SliverToBoxAdapter(
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  minHeight: MediaQuery.of(context).size.height -
-                      ScreenUtil().setWidth(70) -
-                      ScreenUtil().setHeight(98),
+                  minHeight:
+                      MediaQuery.of(context).size.height - ScreenUtil().setWidth(70) - ScreenUtil().setHeight(98),
                 ),
                 child: !_loading && this._recipe != null
                     ? Column(
@@ -218,8 +213,7 @@ class _RecipesDetailsScreenState extends State<RecipesDetailsScreen> {
                                         text: this._recipe!.information,
                                       )
                                     : Container(),
-                                this._recipe!.ingredients.isNotEmpty &&
-                                        this._recipe!.ingredients.length > 0
+                                this._recipe!.ingredients.isNotEmpty && this._recipe!.ingredients.length > 0
                                     ? RecipeIngredients(
                                         ingredients: this._recipe!.ingredients,
                                       )
@@ -300,9 +294,7 @@ class _RecipesDetailsScreenState extends State<RecipesDetailsScreen> {
                                   ),
                                 ),
                                 CommonButton(
-                                  theme: this._isDone
-                                      ? CustomTheme.green
-                                      : CustomTheme.white,
+                                  theme: this._isDone ? CustomTheme.green : CustomTheme.white,
                                   onTap: () => this.markAsDone(),
                                   child: !this._loadingMarkAsDone
                                       ? Row(
@@ -310,24 +302,17 @@ class _RecipesDetailsScreenState extends State<RecipesDetailsScreen> {
                                           children: <Widget>[
                                             Icon(
                                               Icons.check_circle_outline,
-                                              color: this._isDone
-                                                  ? Colors.white
-                                                  : Colors.black,
+                                              color: this._isDone ? Colors.white : Colors.black,
                                               size: 25.0,
                                             ),
                                             SizedBox(
                                               width: ScreenUtil().setWidth(12),
                                             ),
                                             Text(
-                                              this._isDone
-                                                  ? 'SALVO!'
-                                                  : 'FIZ A RECEITA',
+                                              this._isDone ? 'SALVO!' : 'FIZ A RECEITA',
                                               style: TextStyle(
-                                                color: this._isDone
-                                                    ? Colors.white
-                                                    : Colors.black,
-                                                fontSize:
-                                                    ScreenUtil().setSp(15),
+                                                color: this._isDone ? Colors.white : Colors.black,
+                                                fontSize: ScreenUtil().setSp(15),
                                                 fontWeight: FontWeight.w400,
                                               ),
                                             ),
@@ -337,9 +322,7 @@ class _RecipesDetailsScreenState extends State<RecipesDetailsScreen> {
                                           height: ScreenUtil().setWidth(20),
                                           width: ScreenUtil().setWidth(20),
                                           child: CircularProgressIndicator(
-                                            valueColor:
-                                                new AlwaysStoppedAnimation<
-                                                    Color>(
+                                            valueColor: new AlwaysStoppedAnimation<Color>(
                                               Color(0xFF000000),
                                             ),
                                             strokeWidth: 3,
